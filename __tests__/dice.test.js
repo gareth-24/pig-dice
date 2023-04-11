@@ -8,6 +8,7 @@ describe('Game', () => {
     expect(game.currentId).toEqual(1);
     expect(game.maxId).toEqual(0);
   });
+
 });
 
 describe('Player', () => {
@@ -19,4 +20,11 @@ describe('Player', () => {
     expect(player.roundScore).toEqual(0);
     expect(player.roll).toEqual(0);
   });
+
+  test('should correctly assing a random roll number for the player', ()=> {
+    const player = new Player("player1");
+    player.rollDice;
+    expect(player.roll).toBeLessThanOrEqual(6);
+  })
+
 });
