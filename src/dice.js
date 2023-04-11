@@ -58,7 +58,10 @@ Player.prototype.rollDice = function() {
 
 Player.prototype.checkWin = function(){
   if(this.roundScore + this.totalScore >= 100){
-    alert("This player has won the game");
+    // alert("This player has won the game");
+    return true;
+  } else  {
+    return false;
   }
 };
 

@@ -35,5 +35,18 @@ describe('Player', () => {
     expect(playerWhoHolds.totalScore).toEqual(12);
     expect(playerWhoHolds.roundScore).toEqual(0);
   });
+  
+  test('it should correctly return true and alert the player when their score reaches 100', () => {
+    const playerWhoWins = new Player("player1");
+    const playerWhoLoses = new Player("player2");
+    playerWhoWins.totalScore = 99;
+    playerWhoWins.roundScore = 1;
+    playerWhoLoses.totalScore = 90;
+    playerWhoLoses.roundScore = 0;
+    // expect(playerWhoWins.checkWin()).toBeTruthy();
+    expect(playerWhoWins.checkWin()).toEqual(true);
+    // expect(playerWhoLoses.checkWin()).toBeFalsy();
+    expect(playerWhoLoses.checkWin()).toEqual(false);
+  });
 
 });
