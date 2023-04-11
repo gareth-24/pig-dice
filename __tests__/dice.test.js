@@ -49,4 +49,12 @@ describe('Player', () => {
     expect(playerWhoLoses.checkWin()).toEqual(false);
   });
 
+  test('it should correctly call the .rollDice method and add the dice roll value to the round score', () => {
+    const thisPlayersTurn = new Player("player1");
+    thisPlayersTurn.playerTurn();
+    expect(thisPlayersTurn.roundScore).toBeLessThanOrEqual(6);
+    expect(thisPlayersTurn.roundScore).toBeGreaterThan(0);
+    expect(thisPlayersTurn.roundScore).toEqual(thisPlayersTurn.roll);
+  });
+
 });
