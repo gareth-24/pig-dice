@@ -22,9 +22,18 @@ describe('Player', () => {
   });
 
   test('should correctly assing a random roll number for the player', ()=> {
-    const player = new Player("player1");
-    player.rollDice;
-    expect(player.roll).toBeLessThanOrEqual(6);
-  })
+    const playerWhoRolled = new Player("player1");
+    playerWhoRolled.rollDice();
+    expect(playerWhoRolled.roll).toBeLessThanOrEqual(6);
+  });
+
+  test('should correctly update the player total score when they hold and reset their round score back to 0', () => {
+    const playerWhoHolds = new Player("player1");
+    playerWhoHolds.roundScore = 12;
+    playerWhoHolds.totalScore = 0;
+    playerWhoHolds.holdDice();
+    expect(playerWhoHolds.totalScore).toEqual(12);
+    expect(playerWhoHolds.roundScore).toEqual(0);
+  });
 
 });
