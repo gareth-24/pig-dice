@@ -9,6 +9,22 @@ describe('Game', () => {
     expect(game.maxId).toEqual(0);
   });
 
+  test('should correctly assign an ID number by increments of 1', () => {
+    const game = new Game();
+    game.assignId();
+    expect(game.maxId).toEqual(1);
+  });
+
+  test('should correctly add a player to the game object', () => {
+    const game = new Game();
+    const player1 = new Player("player1");
+    const player2 = new Player("player2");
+    game.addPlayer(player1);
+    game.addPlayer(player2);
+    expect(game.gamePlayers[1]).toEqual(player1);
+    expect(game.gamePlayers[2]).toEqual(player2);
+  })
+
 });
 
 describe('Player', () => {
